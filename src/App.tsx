@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react'
+import { Route, Routes } from "react-router-dom";
+import Home from './pages/Home'
+import Starships from './pages/Starships'
 import './App.css'
-import axios from 'axios'
-
 
 function App() {
-  useEffect(() => {
-    axios.get('https://swapi.dev/api/starships/')
-      .then(response => {
-          console.log(response.data);
-    });
-  },[]
-);
 
   return (
-    <>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/starships" element={<Starships />} />
+    </Routes>
   )
 }
 
