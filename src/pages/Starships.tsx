@@ -1,8 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Starship from "../components/Starship";
+//import { IShip } from "../@types/ship";
+
+type IShip = {
+    name: string;
+    model: string;
+}
+
+type IShipArray = IShip[];
 
 function Starships() {
-    const [ships, setShips] = useState([]);
+    const [ships, setShips] = useState<IShipArray>([]);
 
     useEffect(() => {
         axios.get('https://swapi.dev/api/starships/')
@@ -10,14 +19,17 @@ function Starships() {
                 console.log(response.data);
                 setShips(response.data.results);
             });
-    }, []
-    );
+    }, []);
 
-    return (        
+    return (
         <>
-        {
-            ships.map((ship) => console.log(ship))
-        }
+            <h2>Starships</h2>
+            {ships.length > 0 ? (
+                    ships.map((ship) => (
+                            <Starship name={ship.name} model={ship.model} key={ship.name} />                            
+                    ))                
+             ) : 'loading'
+            }
         </>
     )
 }
