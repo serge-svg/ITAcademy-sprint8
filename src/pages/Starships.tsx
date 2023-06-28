@@ -1,12 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Starship from "../components/Starship";
-//import { IShip } from "../@types/ship";
-
-type IShip = {
-    name: string;
-    model: string;
-}
+import { IShip } from "../@types/ship";
 
 type IShipArray = IShip[];
 

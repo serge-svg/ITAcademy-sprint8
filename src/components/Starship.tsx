@@ -4,10 +4,14 @@ import '../App.css'
 function Starship({name, model}: IShip) {
 
     return (
-      <div className="card">
-        <h4>{name}</h4>
-        <h5>{model}</h5>
-      </div>
+      <>
+        <div className="card">
+          <h4>{name}</h4>
+          <h5>{model}</h5>
+        </div>
+
+        <dialog data-model ></dialog>
+      </>
     )
   }
 
