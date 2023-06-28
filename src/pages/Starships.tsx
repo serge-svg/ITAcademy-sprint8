@@ -23,7 +23,7 @@ function Starships() {
                     ships.map((ship) => (
                             <Starship name={ship.name} model={ship.model} key={ship.name} />                            
                     ))                
-             ) : 'loading'
+             ) : 'loading...'
             }
         </>
     )
